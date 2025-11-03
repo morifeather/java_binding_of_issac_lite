@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<world name='dual_robot_arena'>
+  <include>
+    <uri>model://ground_plane</uri>
+  </include>
+  <include>
+    <uri>model://sky</uri>
+  </include>
+  
+  <!-- Define the first robot -->
+  <model name='robot1'>
+    <include>
+      <uri>model://robot_model_1</uri> <!-- Replace with the actual robot model -->
+    </include>
+    <pose>-5 0 0.1 0 0 0</pose> <!-- Robot1 positioned left -->
+  </model>
+  
+  <!-- Define the second robot -->
+  <model name='robot2'>
+    <include>
+      <uri>model://robot_model_2</uri> <!-- Replace with the actual robot model -->
+    </include>
+    <pose>5 0 0.1 0 0 0</pose> <!-- Robot2 positioned right -->
+  </model>
+
+  <!-- Arena boundary -->
+  <model name="arena_boundary">
+    <link name="boundary_link">
+      <collision name="boundary_collision">
+        <geometry>
+          <box>
+            <size>12 12 1</size> <!-- Boundary size -->
+          </box>
+        </geometry>
+      </collision>
+      <visual name="boundary_visual">
+        <geometry>
+          <box>
+            <size>12 12 1</size>
+          </box>
+        </geometry>
+        <material>
+          <color>1 0 0 1</color> <!-- Red color -->
+        </material>
+      </visual>
+    </link>
+    <pose>0 0 0.5 0 0 0</pose>
+  </model>
+
+  <!-- Define obstacles -->
+  <model name="obstacle1">
+    <link name="obstacle_link">
+      <collision name="obstacle_collision">
+        <geometry>
+          <box>
+            <size>1 1 0.5</size> <!-- Obstacle size -->
+          </box>
+        </geometry>
+      </collision>
+      <visual name="obstacle_visual">
+        <geometry>
+          <box>
+            <size>1 1 0.5</size>
+          </box>
+        </geometry>
+        <material>
+          <color>0 1 0 1</color> <!-- Green color -->
+        </material>
+      </visual>
+    </link>
+    <pose>0 2 0.25 0 0 0</pose> <!-- Position obstacle -->
+  </model>
+</world>
